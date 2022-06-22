@@ -7,7 +7,6 @@ namespace FrontToBack.ViewModels
     {
         public List<Slider>Sliders { get; set; }
         public SliderContent SliderContent { get; set; }
-
-
+        public List<Category>Categories { get; set; }
     }
 }
