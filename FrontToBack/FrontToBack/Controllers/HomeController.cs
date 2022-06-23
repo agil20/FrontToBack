@@ -2,6 +2,7 @@
 using FrontToBack.Models;
 using FrontToBack.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,6 +22,7 @@ namespace FrontToBack.Controllers
             homeVm.Sliders = _context.Sliders.ToList();
             homeVm.SliderContent = _context.SliderContents.FirstOrDefault();
           homeVm.Categories= _context.Categories.ToList();
+            homeVm.Products = _context.Products.Include(p=>p.Id).ToList();
             return View(homeVm);
         }
     }
