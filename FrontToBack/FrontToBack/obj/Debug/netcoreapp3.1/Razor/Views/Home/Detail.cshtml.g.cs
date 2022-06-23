@@ -27,7 +27,7 @@ using FrontToBack.ViewModels;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2ecd465ad597bde80626e97a2557aaf46aa7240d", @"/Views/Home/Detail.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2f4ac931d5edb120660d7139af0f0a8b325eff0e", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8ef499bc641b395c15c4ec72c4f836c4ebb7b5c6", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Home_Detail : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Product>
     #nullable disable

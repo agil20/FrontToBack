@@ -25,7 +25,7 @@ namespace FrontToBack.Controllers
             homeVm.Products = _context.Products.Include(p=>p.Category).ToList();
             return View(homeVm);
         }
-        public IActionResult Detail(int? id)
+        public IActionResult Detail(int? id,string name)
         {
             if (id==null)
             {
