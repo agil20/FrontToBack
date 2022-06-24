@@ -19,10 +19,12 @@ public ProductController(AppDbContext context)
 
         public IActionResult Index()
         {
-            List<Product> products = _context.Products.Take(8).Include(p => p.Category).ToList();
+
+            ViewBag.ProductCount = _context.Products.Count(); ;
+            List<Product> products = _context.Products.Take(2).Include(p => p.Category).ToList();
             return View(products);
         }
-        public IActionResult LoadMore()
+        public IActionResult LoadMore(int skip)
         {
             #region
             //List<ProductReturnVM> products = _context.Products.Select(p => new ProductReturnVM {
@@ -48,7 +50,7 @@ public ProductController(AppDbContext context)
             #endregion
 
 
-       List<Product> products = _context.Products.Skip(2).Take(2).Include(p=>p.Category).ToList();
+       List<Product> products = _context.Products.Skip(skip).Take(2).Include(p=>p.Category).ToList();
             return PartialView("_loadMorePartial",products);
         }
     }
