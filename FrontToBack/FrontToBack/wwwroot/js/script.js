@@ -16,7 +16,16 @@ $(document).ready(function () {
     })
     //loadmore
     $(document).on('click', '#loadMore', function () {
-       
+
+        let productList = $("#productList");
+
+        $.ajax({
+            url: "/product/loadmore",
+            method: "get",
+            success: function (res) {
+                productList.append(res);
+            }
+        })
 
     })
 

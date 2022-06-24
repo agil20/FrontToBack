@@ -433,3 +433,4 @@ C:\Users\asus\Source\Repos\FrontToBackjp\FrontToBack\FrontToBack\obj\Debug\netco
 C:\Users\asus\Source\Repos\FrontToBackjp\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\FrontToBack.pdb
 C:\Users\asus\Source\Repos\FrontToBackjp\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\FrontToBack.genruntimeconfig.cache
 C:\Users\asus\Source\Repos\FrontToBackjp\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
+C:\Users\asus\Source\Repos\FrontToBackjp\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_loadMorePartial.cshtml.g.cs
