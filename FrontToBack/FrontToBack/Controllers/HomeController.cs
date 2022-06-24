@@ -40,10 +40,13 @@ namespace FrontToBack.Controllers
         public IActionResult SearchProduct(string search) 
         {
 
-            List<Product> products = _context.Products.OrderBy(p => p.Id)
+            List<Product> products = _context.Products
+                 .Include(p => p.Category)
+                .OrderBy(p => p.Id)
                 .Where(p => p.Name.ToLower()
-                .Contains(search.ToLower()))
+                  .Contains(search.ToLower()))
                 .ToList();
+            return PartialView("_SearchPartial",products);
         
         
         }

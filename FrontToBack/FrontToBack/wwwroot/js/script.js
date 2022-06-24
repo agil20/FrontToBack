@@ -23,8 +23,7 @@ $(document).ready(function () {
                 url: "home/searchProduct?search"+inputValue ,
                 method: "get",
                 success: function (res) {
-                 
-                    console.log(res)
+                    $("#searchList").append(res);
                 }
             })
 
