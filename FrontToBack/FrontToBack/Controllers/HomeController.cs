@@ -37,5 +37,15 @@ namespace FrontToBack.Controllers
             return View(dbProduct);
           
         }
+        public IActionResult SearchProduct(string search) 
+        {
+
+            List<Product> products = _context.Products.OrderBy(p => p.Id)
+                .Where(p => p.Name.ToLower()
+                .Contains(search.ToLower()))
+                .ToList();
+        
+        
+        }
     }
 }

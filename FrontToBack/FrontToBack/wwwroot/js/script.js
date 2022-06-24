@@ -14,6 +14,23 @@ $(document).ready(function () {
         $('.mobile-navbar').addClass("active");
 
     })
+    //search
+    $(document).on("keyup", "#input-search", function ()
+    
+    {
+        let inputValue = $(this).val();
+            $.ajax({
+                url: "home/searchProduct?search"+inputValue ,
+                method: "get",
+                success: function (res) {
+                 
+                    console.log(res)
+                }
+            })
+
+        }
+
+    )
     //loadmore
     let skip = 2;
     $(document).on('click', '#loadMore', function () {
