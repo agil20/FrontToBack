@@ -43,8 +43,10 @@ namespace FrontToBack.Controllers
             List<Product> products = _context.Products
                  .Include(p => p.Category)
                 .OrderBy(p => p.Id)
+
                 .Where(p => p.Name.ToLower()
                   .Contains(search.ToLower()))
+                 .Take(10)
                 .ToList();
             return PartialView("_SearchPartial",products);
         
