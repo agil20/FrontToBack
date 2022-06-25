@@ -583,3 +583,4 @@ C:\Users\asus\Source\Repos\FrontToBacka\FrontToBack\FrontToBack\obj\Debug\netcor
 C:\Users\asus\Source\Repos\FrontToBacka\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\FrontToBack.dll
 C:\Users\asus\Source\Repos\FrontToBacka\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\FrontToBack.pdb
 C:\Users\asus\Source\Repos\FrontToBacka\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\FrontToBack.genruntimeconfig.cache
+C:\Users\asus\Source\Repos\FrontToBacka\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Product\Default.cshtml.g.cs

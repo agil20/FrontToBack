@@ -50,7 +50,6 @@ namespace FrontToBack.Controllers
                 .ToList();
             return PartialView("_SearchPartial",products);
         
-        
         }
     }
 }
