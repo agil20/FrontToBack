@@ -19,21 +19,22 @@ namespace FrontToBack.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync() 
         {
-            double total = 0;
+           int total = 0;
             ViewBag.Total = 0;
             ViewBag.BasketCount = 0;
+
             string basket = Request.Cookies["basket"];
             if (basket != null)
             {
                 List<BasketVM> products = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
-                ViewBag.BasketCount = products.Count;
+                ViewBag.BasketCount = products.Count();
                 foreach (var item in products)
                 {
-                    total = item.Price * item.ProductCount;
+               total += item.Price* item.ProductCount;
                 }
-                ViewBag.BasketCount=total;
-
+            
             }
+            ViewBag.Total = total;
             Bio bio = _context.Bios.FirstOrDefault();
             return View(await Task.FromResult(bio));
         

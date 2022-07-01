@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace FrontToBack.Controllers
@@ -47,11 +48,13 @@ namespace FrontToBack.Controllers
                 BasketVM basketVM = new BasketVM
                 {
                     Id = dbProduct.Id,
-                    Name = dbProduct.Name,
                     Price = dbProduct.Price,
                     ImageUrl = dbProduct.ImageUrl,
                     CategoryId = dbProduct.CategoryId,
+                    Name = dbProduct.Name,
                     ProductCount = 1
+
+
                 };
                 products.Add(basketVM);
             }
@@ -68,9 +71,32 @@ namespace FrontToBack.Controllers
         }
         public IActionResult ShowItem()
         {
+
             string basket = Request.Cookies["basket"];
-              List< BasketVM> p=JsonConvert.DeserializeObject<List<BasketVM>>(basket);
-            return View(p);
+            List<BasketVM> products;
+            if (basket != null)
+            {
+                products = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+                foreach (var item in products)
+                {
+                    Product dbProduct = _context.Products.FirstOrDefault(x => x.Id == item.Id);
+                    item.Price = dbProduct.Price;
+                    item.ImageUrl = dbProduct.ImageUrl;
+                    item.CategoryId = dbProduct.CategoryId;
+                    item.Name = dbProduct.Name;
+
+
+                }
+            }
+            else 
+            {
+                products=new List<BasketVM>();
+
+
+            }
+            
+            
+            return View(products);
         }
     }
 }
