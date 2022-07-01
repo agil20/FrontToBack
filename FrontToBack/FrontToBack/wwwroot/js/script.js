@@ -31,8 +31,11 @@ $(document).ready(function () {
         }
 
     )
+ 
+
+
     //loadmore
-    let skip = 2;
+     let skip = 2;
     $(document).on('click', '#loadMore', function () {
         let productCount = $("#productCount")
         let productList = $("#productList");
@@ -52,6 +55,23 @@ $(document).ready(function () {
         }
 
     })
+  
+    //close td
+    $(document).on('click', '.closeList', function ()
+    {
+        alert($(this).attr("#data-id"));
+        //$.ajax({
+        //    url: "/basket/delete/id=" + postid ,
+        //    method: "get",
+        //    success: function (res) {
+             
+              
+        //    }
+        //})
+
+    })
+
+
 
     $(document).on('click', '.mobile-navbar ul li a', function () {
         if ($(this).children('i').hasClass('fa-caret-right')) {

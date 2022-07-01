@@ -98,5 +98,20 @@ namespace FrontToBack.Controllers
             
             return View(products);
         }
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+     Product dbproduct =  _context.Products.FirstOrDefault(x => x.Id == id);
+            if (dbproduct == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(dbproduct);
+        }
     }
 }

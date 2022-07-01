@@ -1,4 +1,6 @@
-﻿namespace FrontToBack.Models
+﻿using System;
+
+namespace FrontToBack.Models
 {
     public class Product
     {
@@ -10,5 +12,9 @@
         public Category Category { get; set; }
         public int Count { get; set; }
 
+        internal object ToList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
