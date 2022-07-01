@@ -3,6 +3,7 @@
     ViewData["Title"] = "ShowItem";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int count = 0;
+  
 }
 <div class="container">
     <div class="row">
@@ -15,6 +16,7 @@
       <th scope="col">Name</th>
       <th scope="col">Price</th>
          <th scope="col">Quantity</th>
+           <th scope="col">Total</th>
     
     </tr>
   </thead>
@@ -28,6 +30,7 @@
       <td>@item.Name</td>
       <td>@item.Price</td>
             <td>@item.ProductCount</td>
+              <td>@(item.Price*item.ProductCount)</td>
     </tr>
   }
     

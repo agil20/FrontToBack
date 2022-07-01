@@ -8481,11 +8481,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\asus\\Source\\Repos\\FrontToBacku\\FrontToBack\\FrontToBack\\FrontToBack.csproj",
+      "projectUniqueName": "C:\\Users\\asus\\Source\\Repos\\FrontToBackq\\FrontToBack\\FrontToBack\\FrontToBack.csproj",
       "projectName": "FrontToBack",
-      "projectPath": "C:\\Users\\asus\\Source\\Repos\\FrontToBacku\\FrontToBack\\FrontToBack\\FrontToBack.csproj",
+      "projectPath": "C:\\Users\\asus\\Source\\Repos\\FrontToBackq\\FrontToBack\\FrontToBack\\FrontToBack.csproj",
       "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\asus\\Source\\Repos\\FrontToBacku\\FrontToBack\\FrontToBack\\obj\\",
+      "outputPath": "C:\\Users\\asus\\Source\\Repos\\FrontToBackq\\FrontToBack\\FrontToBack\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
