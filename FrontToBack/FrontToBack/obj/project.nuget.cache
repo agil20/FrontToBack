@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZuP7nDZStg7TaoM3Uzo4ZxL1609mUZ5yAWC+VFm40ozXPaEbHdd/EIpG0Ui4IW3/wkzkpPWieAimHt2pGnHdlA==",
+  "dgSpecHash": "GLdBRktdqKWvv52YmH4yT2kqTERis3l4ZmYnf1x6dDa0kK6rJK+9oKAcCY0+LOS/IVEO26KX7a50YyD+GAZ5+A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\asus\\Source\\Repos\\FrontToBackq\\FrontToBack\\FrontToBack\\FrontToBack.csproj",
+  "projectFilePath": "C:\\Users\\asus\\Source\\Repos\\FrontToBackqq\\FrontToBack\\FrontToBack\\FrontToBack.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

@@ -59,15 +59,16 @@ $(document).ready(function () {
     //close td
     $(document).on('click', '.closeList', function ()
     {
-        alert($(this).attr("#data-id"));
-        //$.ajax({
-        //    url: "/basket/delete/id=" + postid ,
-        //    method: "get",
-        //    success: function (res) {
-             
-              
-        //    }
-        //})
+        alert($(this).data().value);    
+        let Id = $(this).data().value
+       
+        $.ajax({
+            url: "/basket/delete?id=" + Id,
+            method: "get",
+            success: function (res) {
+                console.log(res)
+            }
+        })
 
     })
 

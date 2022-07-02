@@ -102,7 +102,8 @@ namespace FrontToBack.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                return Ok("Not fOUNT");
+
             }
 
      Product dbproduct =  _context.Products.FirstOrDefault(x => x.Id == id);
@@ -112,6 +113,7 @@ namespace FrontToBack.Controllers
             }
 
             return Ok(dbproduct);
+
         }
     }
 }
