@@ -1655,3 +1655,4 @@ C:\Users\asus\Source\Repos\FrontToBack fb\FrontToBack\FrontToBack\obj\Debug\netc
 C:\Users\asus\Source\Repos\FrontToBack fb\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\_ViewStart.cshtml.g.cs
 C:\Users\asus\Source\Repos\FrontToBack fb\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\_ViewImports.cshtml.g.cs
 C:\Users\asus\Source\Repos\FrontToBack fb\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\asus\Source\Repos\FrontToBack fb\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Category\Index.cshtml.g.cs
