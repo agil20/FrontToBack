@@ -182,7 +182,47 @@ $(document).ready(function () {
                 }
             }
         );
-      });
+    });
+    //plus
+   
+    $(".plusTd").each(function (index) {
+     $(this).on("click", function () {
+         let Id = $(this).data().value
+        
+         let mythis = $(this)
+   
+         $.ajax({
+             url: "/basket/Plus?id=" + Id,
+             method: "get",
+             success: function (res) {
+                 mythis.prev().text(`${res.productCount}`) 
+                 $(".productQuery").text(`${res.productCount}`) 
+             }
+         })
+       
+       
+        });
+    });
+    //minus
+
+    $(".minusTd").each(function (index) {
+        $(this).on("click", function () {
+            let Id = $(this).data().value
+
+            let mythis = $(this)
+
+            $.ajax({
+                url: "/basket/Minus?id=" + Id,
+                method: "get",
+                success: function (res) {
+                    mythis.next().text(`${res.productCount}`)
+                    $(".productQuery").text(`${res.productCount}`)
+                }
+            })
+
+
+        });
+    });
 
       $(document).ready(function(){
         $(".say").owlCarousel(
@@ -195,19 +235,7 @@ $(document).ready(function () {
       });
 })
 
-//$(document).on('click', '.closeList', function () {
-//    alert($(this).data().value);
-//    let Id = $(this).data().value
 
-//    $.ajax({
-//        url: "/basket/delete?id=" + Id,
-//        method: "get",
-//        success: function (res) {
-//            console.log(res)
-//        }
-//    })
-
-//})
 
 
 const removeBtns = document.querySelectorAll(".closeList");
@@ -216,26 +244,17 @@ removeBtns.forEach(btn => {
     let productCount = document.getElementById("productCount")
     function handleRemoveElement() {
         let btnId = btn.getAttribute("data-value")
-       
+  
         axios.get("/basket/delete?id=" + btnId)
             .then(function (response) {
-                console.log(response.data)
-
-                productCount.innerHTML=response.data
-             
+                console.log(response);
+                productCount.innerHTML = response.data
             })
             .catch(function (error) {
               
                 console.log(error);
             })
-          
-
-
-
-
         this.parentElement.remove();
     }
-
     btn.addEventListener("click",handleRemoveElement)
-
 })

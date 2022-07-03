@@ -100,13 +100,52 @@ namespace FrontToBack.Controllers
         }
         public IActionResult Delete(int? id)
         {
+            List<BasketVM> basketVMs;
             string basket = Request.Cookies["basket"];
-            List<BasketVM> basketVMs =   JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+           basketVMs =   JsonConvert.DeserializeObject<List<BasketVM>>(basket);
             basketVMs.RemoveAll(p => p.Id == id);
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(basketVMs), new CookieOptions { MaxAge = TimeSpan.FromDays(5) });
-
+        
             return Json(basketVMs.Count);
 
+        }
+        public IActionResult Plus(int? id)
+        {
+
+            List<BasketVM> products;
+            string basket = Request.Cookies["basket"];
+            products = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+            BasketVM product = products.Find(p => p.Id == id);
+         
+
+            product.ProductCount = product.ProductCount + 1;
+     
+            Response.Cookies.Append("basket", JsonConvert.SerializeObject(products), new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
+            var productPlusObj = new
+            {
+                productCount = product.ProductCount,
+                
+            };
+            return Json(productPlusObj);
+        }
+        public IActionResult Minus(int? id)
+        {
+
+            List<BasketVM> products;
+            string basket = Request.Cookies["basket"];
+            products = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+            BasketVM product = products.Find(p => p.Id == id);
+
+
+            product.ProductCount = product.ProductCount -1;
+
+            Response.Cookies.Append("basket", JsonConvert.SerializeObject(products), new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
+            var productPlusObj = new
+            {
+                productCount = product.ProductCount,
+
+            };
+            return Json(productPlusObj);
         }
     }
 }

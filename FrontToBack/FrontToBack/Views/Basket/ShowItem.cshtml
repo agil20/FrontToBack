@@ -1,4 +1,5 @@
 ﻿@model List<BasketVM>
+
 @{
     ViewData["Title"] = "ShowItem";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -31,10 +32,17 @@
       <td> <img  width="50"  src="~/img/@item.ImageUrl" /></td>
       <td>@item.Name</td>
       <td>@item.Price</td>
-            <td>@item.ProductCount</td>
+            <td class="productQuery">@item.ProductCount</td>
               <td>@(item.Price*item.ProductCount)</td>
+   
+              <td> <span   data-value="@item.Id" class="minusTd"  style="cursor:pointer;font-size:25px" >-</span> <span class="@item.ProductCount">@item.ProductCount</span> <span data-value="@item.Id" class="plusTd" style="cursor:pointer; font-size:25px">+</span> </td>
+
+
      <td style="cursor:pointer" class="closeList" data-value="@item.Id">X</td>
+
+
     </tr>
+
   }
     
   </tbody>
