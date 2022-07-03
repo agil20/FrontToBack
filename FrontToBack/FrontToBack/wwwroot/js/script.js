@@ -56,21 +56,8 @@ $(document).ready(function () {
 
     })
   
-    //close td
-    $(document).on('click', '.closeList', function ()
-    {
-        alert($(this).data().value);    
-        let Id = $(this).data().value
-       
-        $.ajax({
-            url: "/basket/delete?id=" + Id,
-            method: "get",
-            success: function (res) {
-                console.log(res)
-            }
-        })
+ 
 
-    })
 
 
 
@@ -206,4 +193,49 @@ $(document).ready(function () {
             }
         );
       });
+})
+
+//$(document).on('click', '.closeList', function () {
+//    alert($(this).data().value);
+//    let Id = $(this).data().value
+
+//    $.ajax({
+//        url: "/basket/delete?id=" + Id,
+//        method: "get",
+//        success: function (res) {
+//            console.log(res)
+//        }
+//    })
+
+//})
+
+
+const removeBtns = document.querySelectorAll(".closeList");
+
+removeBtns.forEach(btn => {
+    let productCount = document.getElementById("productCount")
+    function handleRemoveElement() {
+        let btnId = btn.getAttribute("data-value")
+       
+        axios.get("/basket/delete?id=" + btnId)
+            .then(function (response) {
+                console.log(response.data)
+
+                productCount.innerHTML=response.data
+             
+            })
+            .catch(function (error) {
+              
+                console.log(error);
+            })
+          
+
+
+
+
+        this.parentElement.remove();
+    }
+
+    btn.addEventListener("click",handleRemoveElement)
+
 })

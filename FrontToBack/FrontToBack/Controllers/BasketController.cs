@@ -100,19 +100,12 @@ namespace FrontToBack.Controllers
         }
         public IActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return Ok("Not fOUNT");
+            string basket = Request.Cookies["basket"];
+            List<BasketVM> basketVMs =   JsonConvert.DeserializeObject<List<BasketVM>>(basket);
+            basketVMs.RemoveAll(p => p.Id == id);
+            Response.Cookies.Append("basket", JsonConvert.SerializeObject(basketVMs), new CookieOptions { MaxAge = TimeSpan.FromDays(5) });
 
-            }
-
-     Product dbproduct =  _context.Products.FirstOrDefault(x => x.Id == id);
-            if (dbproduct == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(dbproduct);
+            return Json(basketVMs.Count);
 
         }
     }
