@@ -119,31 +119,37 @@ namespace FrontToBack.Controllers
          
 
             product.ProductCount = product.ProductCount + 1;
-     
+            product.Sum = product.Price * product.ProductCount;
+
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(products), new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
             var productPlusObj = new
             {
                 productCount = product.ProductCount,
-                
+                productSum=product.Sum
             };
             return Json(productPlusObj);
         }
         public IActionResult Minus(int? id)
         {
+            
 
             List<BasketVM> products;
             string basket = Request.Cookies["basket"];
             products = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
             BasketVM product = products.Find(p => p.Id == id);
 
-
+         
             product.ProductCount = product.ProductCount -1;
-
+            product.Sum = product.Price * product.ProductCount;
+            if (product.ProductCount==0)
+            {
+                products.Remove(product);
+            }
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(products), new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
             var productPlusObj = new
             {
                 productCount = product.ProductCount,
-
+                productSum = product.Sum
             };
             return Json(productPlusObj);
         }

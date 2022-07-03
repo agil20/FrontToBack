@@ -8,5 +8,7 @@
         public string ImageUrl { get; set; }
         public int CategoryId { get; set; }
         public int ProductCount { get; set; }
+        public int Sum{ get; set; }
+
     }
 }

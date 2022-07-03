@@ -195,8 +195,9 @@ $(document).ready(function () {
              url: "/basket/Plus?id=" + Id,
              method: "get",
              success: function (res) {
+                 mythis.parent().prev().text(`${res.productSum}`) 
                  mythis.prev().text(`${res.productCount}`) 
-                 $(".productQuery").text(`${res.productCount}`) 
+                 mythis.parent().prev().prev().text(`${res.productCount}`) 
              }
          })
        
@@ -210,13 +211,18 @@ $(document).ready(function () {
             let Id = $(this).data().value
 
             let mythis = $(this)
-
+         
+           
             $.ajax({
                 url: "/basket/Minus?id=" + Id,
                 method: "get",
                 success: function (res) {
                     mythis.next().text(`${res.productCount}`)
-                    $(".productQuery").text(`${res.productCount}`)
+                    mythis.parent().prev().text(`${res.productSum}`) 
+                    mythis.parent().prev().prev().text(`${res.productCount}`)  
+                    if (res.productCount == 0) {
+                        mythis.parent().parent().remove();
+                    }
                 }
             })
 
@@ -248,7 +254,7 @@ removeBtns.forEach(btn => {
         axios.get("/basket/delete?id=" + btnId)
             .then(function (response) {
                 console.log(response);
-                productCount.innerHTML = response.data
+                productCount.innerHTML = response.productCount
             })
             .catch(function (error) {
               
