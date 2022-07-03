@@ -254,7 +254,7 @@ removeBtns.forEach(btn => {
         axios.get("/basket/delete?id=" + btnId)
             .then(function (response) {
                 console.log(response);
-                productCount.innerHTML = response.productCount
+                productCount.innerHTML = response.data
             })
             .catch(function (error) {
               
