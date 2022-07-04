@@ -28,10 +28,10 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
         
             }
         [HttpPost]
-        public IActionResult Create(string Name ,string Desc)
+        public IActionResult Create(Category category)
         {
 
-            return View();
+            return Content($"{category.Name}{category.Desc}");
 
         }
     }
