@@ -3,6 +3,7 @@ using FrontToBack.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace FrontToBack.Areas.AdminPanel.Controllers
 {
@@ -33,6 +34,16 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
 
             return Content($"{category.Name}{category.Desc}");
 
+        }
+        public async Task<IActionResult> Detail(int? id) 
+        
+        {
+            if (id==null) return NotFound();
+            Category category = await _context.Categories.FindAsync(id);
+            if (category == null) return NotFound();
+            return View(category);
+           
+        
         }
     }
 }
