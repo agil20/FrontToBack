@@ -29,7 +29,6 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
 
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Category category)
         {
 
@@ -73,19 +72,28 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
             return View(category);
         }
         [HttpPost]
-   
         public async Task<IActionResult> Update(Category category)
-
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            Category dbcategory = _context.Categories.FirstOrDefault(c => c.Id == category.Id);
-            if (dbcategory == null) return NotFound();
-            dbcategory.Name = category.Name;
-            dbcategory.Desc = category.Desc;
-            return View("ookay");
+            Category dbCategory = _context.Categories.FirstOrDefault(c => c.Id == category.Id);
+            Category dbCategoryName = _context.Categories.FirstOrDefault(c => c.Name.ToLower() == category.Name.ToLower());
+            if (dbCategoryName != null)
+            {
+                if (dbCategoryName.Name != dbCategory.Name)
+                {
+                    ModelState.AddModelError("Name", "bu adli category var");
+                    return View();
+                }
+            }
+
+
+            dbCategory.Name = category.Name;
+            dbCategory.Desc = category.Desc;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
 
 
