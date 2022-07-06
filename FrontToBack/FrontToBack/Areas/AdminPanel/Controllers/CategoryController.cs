@@ -95,6 +95,14 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+        public IActionResult Delete(int? id)
+        {
+            Category dbCategory = _context.Categories.FirstOrDefault(c => c.Id == id);
+            if (dbCategory == null) return View();
+            _context.Categories.Remove(dbCategory);
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
 
 
 
