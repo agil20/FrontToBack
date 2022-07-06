@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FrontToBack.Models
 {
@@ -8,6 +9,8 @@ namespace FrontToBack.Models
         public string Name { get; set; }
         public int Price { get; set; }
         public string ImageUrl { get; set; }
+        //[NotMapped]
+        //public IFromFile MyProperty { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public int Count { get; set; }
