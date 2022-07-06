@@ -2135,3 +2135,5 @@ C:\Users\asus\Source\Repos\FrontToBack1\FrontToBack\FrontToBack\obj\Debug\netcor
 C:\Users\asus\Source\Repos\FrontToBack1\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\FrontToBack.dll
 C:\Users\asus\Source\Repos\FrontToBack1\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\FrontToBack.pdb
 C:\Users\asus\Source\Repos\FrontToBack1\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\FrontToBack.genruntimeconfig.cache
+C:\Users\asus\Source\Repos\FrontToBack1\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Shared\_ValidationPartial.cshtml.g.cs
+C:\Users\asus\Source\Repos\FrontToBack1\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Category\Update.cshtml.g.cs

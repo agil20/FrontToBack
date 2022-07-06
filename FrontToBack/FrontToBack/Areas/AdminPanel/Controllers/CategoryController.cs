@@ -29,7 +29,8 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
 
         }
         [HttpPost]
-        public IActionResult Create(Category category)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Category category)
         {
 
             if (!ModelState.IsValid)
@@ -37,8 +38,22 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
                 return View();
 
             }
+            bool existNNameCtegory = _context.Categories.Any(x => x.Name.ToLower() == category.Name.ToLower());
+            if (existNNameCtegory)
+            {
+                ModelState.AddModelError("Name", "Bu adli category Var");
+            }
+            Category newCategory = new Category
+            {
+         Name = category.Name,
+          Desc=category.Desc,
+      
 
-            return Content($"{category.Name}{category.Desc}");
+
+            };
+         await   _context.Categories.AddAsync(newCategory);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("index");
 
         }
         public async Task<IActionResult> Detail(int? id) 
@@ -48,8 +63,21 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
             Category category = await _context.Categories.FindAsync(id);
             if (category == null) return NotFound();
             return View(category);
-           
-        
         }
+        public async Task<IActionResult> Update(int? id)
+
+        {
+            if (id == null) return NotFound();
+            Category category = await _context.Categories.FindAsync(id);
+            if (category == null) return NotFound();
+            return View(category);
+        }
+
+
+
+
     }
+
+
+
 }
