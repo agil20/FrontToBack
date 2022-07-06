@@ -23,14 +23,20 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
             List<Category> categories = _context.Categories.ToList();
             return View(categories);
         }
-        public IActionResult Create() 
+        public IActionResult Create()
         {
             return View();
-        
-            }
+
+        }
         [HttpPost]
         public IActionResult Create(Category category)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return View();
+
+            }
 
             return Content($"{category.Name}{category.Desc}");
 

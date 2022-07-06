@@ -1,4 +1,6 @@
 ﻿
+@model Category
+
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Areas/AdminPanel/Views/Shared/_AdminLayout.cshtml";
@@ -13,14 +15,16 @@
                 
                   <form class="forms-sample" action="create" method="post">
                     <div class="form-group">
-                      <label for="exampleInputName1">Name</label>
-                      <input name="Name" type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-                    </div>
+                      <label asp-for="Name" ></label>
+                      <input asp-for="Name"  class="form-control" placeholder="Name">
+                <span asp-validation-for="Name"> </span>
+                  </div>
 
                     <div class="form-group">
-                      <label for="exampleTextarea1">Textarea</label>
-                      <textarea name="Desc" class="form-control" id="exampleTextarea1" rows="4"></textarea>
-                    </div>
+                      <label asp-for="Desc"></label>
+                      <textarea asp-for="Desc"  class="form-control"  rows="4"></textarea>
+                   <span asp-validation-for="Desc"> </span>
+                  </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
               <a asp-action="index" class="btn btn-dark">  Go back  </a>
                   </form>
@@ -29,4 +33,5 @@
             </div>
 
 </div>
+
 
