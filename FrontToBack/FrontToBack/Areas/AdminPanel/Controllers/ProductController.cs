@@ -25,9 +25,14 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
 
         {
             if (id == null) return NotFound();
-            Product product = await _context.Products.FindAsync(id);
+            Product product = await _context.Products.Include(p=>p.Category).FirstOrDefaultAsync(p=>p.Id==id);
             if (product == null) return NotFound();
             return View(product);
+        }
+        public IActionResult Create()
+        {
+            return View();
+        
         }
     }
 }
