@@ -72,6 +72,21 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
             if (category == null) return NotFound();
             return View(category);
         }
+        [HttpPost]
+   
+        public async Task<IActionResult> Update(Category category)
+
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            Category dbcategory = _context.Categories.FirstOrDefault(c => c.Id == category.Id);
+            if (dbcategory == null) return NotFound();
+            dbcategory.Name = category.Name;
+            dbcategory.Desc = category.Desc;
+            return View("ookay");
+        }
 
 
 
