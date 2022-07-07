@@ -20,7 +20,7 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
 
         public IActionResult Index()
         {
-            List<Category> categories = _context.Product.ToList();
+            List<Category> categories = _context.Categories.ToList();
             return View(categories);
         }
         public IActionResult Create()
@@ -37,7 +37,7 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
                 return View();
 
             }
-            bool existNNameCtegory = _context.Product.Any(x => x.Name.ToLower() == category.Name.ToLower());
+            bool existNNameCtegory = _context.Categories.Any(x => x.Name.ToLower() == category.Name.ToLower());
             if (existNNameCtegory)
             {
                 ModelState.AddModelError("Name", "Bu adli category Var");
@@ -50,7 +50,7 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
 
 
             };
-         await   _context.Product.AddAsync(newCategory);
+         await   _context.Categories.AddAsync(newCategory);
             await _context.SaveChangesAsync();
             return RedirectToAction("index");
 
@@ -59,7 +59,7 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
         
         {
             if (id==null) return NotFound();
-            Category category = await _context.Product.FindAsync(id);
+            Category category = await _context.Categories.FindAsync(id);
             if (category == null) return NotFound();
             return View(category);
         }
@@ -67,7 +67,7 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
 
         {
             if (id == null) return NotFound();
-            Category category = await _context.Product.FindAsync(id);
+            Category category = await _context.Categories.FindAsync(id);
             if (category == null) return NotFound();
             return View(category);
         }
@@ -78,8 +78,8 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
             {
                 return View();
             }
-            Category dbCategory = _context.Product.FirstOrDefault(c => c.Id == category.Id);
-            Category dbCategoryName = _context.Product.FirstOrDefault(c => c.Name.ToLower() == category.Name.ToLower());
+            Category dbCategory = _context.Categories.FirstOrDefault(c => c.Id == category.Id);
+            Category dbCategoryName = _context.Categories.FirstOrDefault(c => c.Name.ToLower() == category.Name.ToLower());
             if (dbCategoryName != null)
             {
                 if (dbCategoryName.Name != dbCategory.Name)
@@ -97,16 +97,12 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
         }
         public IActionResult Delete(int? id)
         {
-            Category dbCategory = _context.Product.FirstOrDefault(c => c.Id == id);
+            Category dbCategory = _context.Categories.FirstOrDefault(c => c.Id == id);
             if (dbCategory == null) return View();
-            _context.Product.Remove(dbCategory);
+            _context.Categories.Remove(dbCategory);
             _context.SaveChanges();
             return RedirectToAction("index");
         }
-
-
-
-
     }
 
 

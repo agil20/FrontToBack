@@ -11,5 +11,6 @@ namespace FrontToBack.Models
         [Required, MinLength(5)]
         public string Desc { get; set; }
         public List<Product> Products { get; set; }
+    
     }
 }

@@ -31,8 +31,25 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
         }
         public IActionResult Create()
         {
+            ViewBag.Categories = _context.Categories.ToList();
+
             return View();
         
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Product product)
+        {
+            if (product.Photo==null)
+            {
+                ModelState.AddModelError("Photo", "Bosqoyma");
+            }
+          
+          
+            ViewBag.Categories = _context.Categories.ToList();
+
+            return View();
+
         }
     }
 }

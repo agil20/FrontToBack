@@ -58,10 +58,10 @@
                         </ul>
                         <ul class="category d-none d-md-flex list-unstyled">
                             <li><a href="" data-id="all">All</a></li>
-                             @foreach (var item in Model.Categories)
+                             @foreach (var item in @Model.Categories)
                             {
-                                
-                            <li><a href="" data-id="@item.Name.ToLower();">@item.Name</a></li>
+                            <li><a href="" data-id="@item.Name.ToLower()">@item.Name</a></li>
+                          
                             }
                         </ul>
                         <ul class="list-unstyled">
@@ -75,7 +75,6 @@
                 <div class="row">
                 
            @await Component.InvokeAsync("Product",8)
-
                 </div>
             </div>
         </section>
