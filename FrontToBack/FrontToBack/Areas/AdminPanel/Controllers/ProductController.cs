@@ -84,5 +84,15 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
 
             return RedirectToAction("Index");
         }
+        public async Task< IActionResult> Delete(int? id)
+        {
+            Product dbproduct =  await _context.Products.FindAsync(id);
+            string path = Path.Combine(_env.WebRootPath, "img",dbproduct.ImageUrl);
+            if (dbproduct == null)
+                Helpers.Helpers.DeleteImage(path);
+            _context.Products.Remove(dbproduct);
+            _context.SaveChanges();
+            return RedirectToAction("index");
+        }
     }
 }
