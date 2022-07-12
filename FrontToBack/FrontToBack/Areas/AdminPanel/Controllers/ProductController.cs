@@ -68,11 +68,11 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
 
             Product newProduct = new Product
 
-            {
-                Price = product.Price,
-                Name = product.Name,
-                CategoryId = product.CategoryId,
-                ImageUrl = product.Photo.SaveImage(_env, "img");
+            { 
+                Price=product.Price,
+                 Name=product.Name,
+                 CategoryId=product.CategoryId,
+                 ImageUrl=product.Photo.SaveImage(_env,"img")
             
             };
                
