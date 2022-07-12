@@ -28,13 +28,8 @@
                 <span asp-validation-for="Count"> </span>
                   </div>
                 
-                  <select  asp-for="CategoryId" class="form-select" aria-label="Default select example">
+                  <select  asp-for="CategoryId" class="form-select" asp-items="@ViewBag.Categories" aria-label="Default select example">
         <option  selected>Open this select menu</option>
-        @foreach (var item in ViewBag.Categories)
-       {
-           
-             <option value="@item.Id">@item.Name</option>
-       }
        
          </select>
           
