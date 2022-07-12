@@ -2302,3 +2302,9 @@ C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\obj\Debug\n
 C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Index.cshtml.g.cs
 C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Detail.cshtml.g.cs
 C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Create.cshtml.g.cs
+C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
