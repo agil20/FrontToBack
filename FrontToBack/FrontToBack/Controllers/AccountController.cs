@@ -51,9 +51,52 @@ namespace FrontToBack.Controllers
                 return View(register);
             
             }
+          await  _signInManager.SignInAsync(user,true);
             return RedirectToAction("index", "Home");
 
         }
+        public IActionResult Login()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginVM loginVM)
+        {
+            if (!ModelState.IsValid) return View();
+
+            AppUser appUser = await _userManager.FindByEmailAsync(loginVM.Email);
+            if (appUser == null)
+            {
+                ModelState.AddModelError("", "email ve ya password invalid");
+                return View();
+            }
+            Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(appUser, loginVM.Password, true, true);
+
+            if (result.IsLockedOut)
+            {
+                ModelState.AddModelError("", "Bloklandiniz");
+                return View();
+            }
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", "email ve ya password invalid");
+                return View();
+            }
+
+
+            return RedirectToAction("index", "Home");
+        }
+
+        public async Task<IActionResult> Logout()
+
+        { 
+        await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");  
+        }
+
+
 
     }
 }

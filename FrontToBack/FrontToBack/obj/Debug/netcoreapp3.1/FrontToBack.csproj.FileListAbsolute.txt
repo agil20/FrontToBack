@@ -2308,3 +2308,4 @@ C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\bin\Debug\n
 C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\asus\Desktop\FronToBaks\FrontToBack\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
