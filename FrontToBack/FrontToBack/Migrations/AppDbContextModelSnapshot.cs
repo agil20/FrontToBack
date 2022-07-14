@@ -109,6 +109,15 @@ namespace FrontToBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Bios");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 5,
+                            AuthorName = "Aqil",
+                            Facebook = "Cj0KCQjwtvqVBhCVARIsAFUxcRv7PtwND0mb_zQZOHEyCwzR8nce3lB8LQyvcAf8uu_Cb6agQSJCTJgaAkJZEALw_wcB",
+                            Linkedn = "https://www.linkexdin.com/"
+                        });
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Category", b =>
@@ -130,6 +139,56 @@ namespace FrontToBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Desc = "Lorem ipsum",
+                            Name = "Popular"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Desc = "Lorem ipsum",
+                            Name = "Winter"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Desc = "Lorem ipsum",
+                            Name = "Exotic"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Desc = "Lorem ipsum",
+                            Name = "Varius"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Desc = "Lorem ipsum",
+                            Name = "Venor"
+                        });
+                });
+
+            modelBuilder.Entity("FrontToBack.Models.Experts", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Positation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Experts");
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Product", b =>
@@ -159,6 +218,62 @@ namespace FrontToBack.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            Count = 0,
+                            ImageUrl = "shop-13-img.jpg",
+                            Name = "Product1",
+                            Price = 60
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 2,
+                            Count = 0,
+                            ImageUrl = "shop-12-img.jpg",
+                            Name = "Product2",
+                            Price = 65
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 3,
+                            Count = 0,
+                            ImageUrl = "shop-11-img.jpg",
+                            Name = "Product3",
+                            Price = 70
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 4,
+                            Count = 0,
+                            ImageUrl = "shop-13-img.jpg",
+                            Name = "Product4",
+                            Price = 80
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 5,
+                            Count = 0,
+                            ImageUrl = "shop-8-img.jpg",
+                            Name = "Product5",
+                            Price = 90
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 3,
+                            Count = 0,
+                            ImageUrl = "shop-11-img.jpg",
+                            Name = "Product6",
+                            Price = 90
+                        });
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Slider", b =>
@@ -174,6 +289,18 @@ namespace FrontToBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Sliders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ImgUrl = "h3-slider-background.jpg"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ImgUrl = "h3-slider-background-2.jpg"
+                        });
                 });
 
             modelBuilder.Entity("FrontToBack.Models.SliderContent", b =>
