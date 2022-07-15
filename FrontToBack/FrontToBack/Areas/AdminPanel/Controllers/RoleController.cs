@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace FrontToBack.Areas.AdminPanel.Controllers
 {
@@ -27,6 +28,19 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
         { 
         
             return View();
+        }
+        [HttpPost]
+        public  async Task<IActionResult> Create(string role)
+        {
+            var result =  await _rolemanager.CreateAsync(new IdentityRole { Name = role });
+            return RedirectToAction("Index");
+        }
+        public async Task< IActionResult> Delete(string id)
+        {
+            var result = await _rolemanager.FindByIdAsync(id);
+           await  _rolemanager.DeleteAsync(result);
+            return RedirectToAction("Index");
+
         }
     }
 }
