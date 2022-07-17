@@ -243,6 +243,21 @@ namespace FrontToBack.Migrations
                     b.ToTable("Experts");
                 });
 
+            modelBuilder.Entity("FrontToBack.Models.Instagram", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Instagrams");
+                });
+
             modelBuilder.Entity("FrontToBack.Models.Product", b =>
                 {
                     b.Property<int>("Id")

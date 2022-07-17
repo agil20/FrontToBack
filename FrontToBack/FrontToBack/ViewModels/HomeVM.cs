@@ -12,5 +12,6 @@ namespace FrontToBack.ViewModels
         public List<Experts> Experts { get; set; }
         public List<Blog> Blogs { get; set; }
         public List<CaruselBlogs> CaruselBlogs { get; set; }
+        public List<Instagram> Instagrams { get; set; }
     }
 }

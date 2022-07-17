@@ -21,6 +21,7 @@ namespace FrontToBack.DAL
         public DbSet<Experts> Experts { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<CaruselBlogs> CaruselBlogs { get; set; }
+        public DbSet<Instagram> Instagrams { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
