@@ -111,5 +111,42 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
             _context.SaveChanges();
             return RedirectToAction("index");
         }
+        public async Task<IActionResult> Update(int? id)
+
+        {
+            if (id == null) return NotFound();
+            Product product= await _context.Products.FindAsync(id);
+            if (product == null) return NotFound();
+            return View(product);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Update(Product product)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            Product products = _context.Products.FirstOrDefault(c => c.Id == product.Id);
+            //product productname = _context.products.firstordefault(c => c.name.tolower() == product.name.tolower());
+
+            //if (productname != null)
+            //{
+            //    if (productname.name != productname.name)
+            //    {
+            //        modelstate.addmodelerror("name", "bu adli product var");
+            //        return view();
+            //    }
+            //}
+
+
+            products.Name = product.Name;
+            products.Price = product.Price;
+            products.Photo = product.Photo;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("index");
+
+
+        }
+
     }
 }

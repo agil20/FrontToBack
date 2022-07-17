@@ -2485,3 +2485,4 @@ C:\Users\asus\Desktop\Asp.Net Mvc\FrontToBack\FrontToBack\FrontToBack\obj\Debug\
 C:\Users\asus\Desktop\Asp.Net Mvc\FrontToBack\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Role\Index.cshtml.g.cs
 C:\Users\asus\Desktop\Asp.Net Mvc\FrontToBack\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Role\Create.cshtml.g.cs
 C:\Users\asus\Desktop\Asp.Net Mvc\FrontToBack\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\User\Update.cshtml.g.cs
+C:\Users\asus\Desktop\Asp.Net Mvc\FrontToBack\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Product\Update.cshtml.g.cs
