@@ -127,21 +127,12 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
                 return View();
             }
             Product products = _context.Products.FirstOrDefault(c => c.Id == product.Id);
-            //product productname = _context.products.firstordefault(c => c.name.tolower() == product.name.tolower());
-
-            //if (productname != null)
-            //{
-            //    if (productname.name != productname.name)
-            //    {
-            //        modelstate.addmodelerror("name", "bu adli product var");
-            //        return view();
-            //    }
-            //}
+         
 
 
             products.Name = product.Name;
             products.Price = product.Price;
-            products.Photo = product.Photo;
+          products.ImageUrl = product.Photo.SaveImage(_env, "img");
             await _context.SaveChangesAsync();
             return RedirectToAction("index");
 
