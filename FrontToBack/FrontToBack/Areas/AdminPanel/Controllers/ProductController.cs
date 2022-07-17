@@ -122,17 +122,32 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(Product product)
         {
+            
             if (!ModelState.IsValid)
             {
                 return View();
             }
             Product products = _context.Products.FirstOrDefault(c => c.Id == product.Id);
-         
+           Product productName = _context.Products.FirstOrDefault(c => c.Name.ToLower() == product.Name.ToLower());
+
+            if (product.Photo!=null)
+            {
+                products.ImageUrl = product.Photo.SaveImage(_env, "img");
+
+            }
+            if (productName != null)
+            {
+                if (productName.Name != products.Name)
+                {
+                    ModelState.AddModelError("Name", "bu adli product var var");
+                    return View();
+                }
+            }
 
 
             products.Name = product.Name;
             products.Price = product.Price;
-          products.ImageUrl = product.Photo.SaveImage(_env, "img");
+       
             await _context.SaveChangesAsync();
             return RedirectToAction("index");
 
