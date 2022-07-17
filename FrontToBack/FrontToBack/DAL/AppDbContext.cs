@@ -46,12 +46,20 @@ namespace FrontToBack.DAL
                     new Category { Id = 5, Name = "Venor", Desc = "Lorem ipsum" }
                     );
                                 builder.Entity<Bio>().HasData(
-                    new Bio { Id = 5,Linkedn= "https://www.linkexdin.com/" ,Facebook= "Cj0KCQjwtvqVBhCVARIsAFUxcRv7PtwND0mb_zQZOHEyCwzR8nce3lB8LQyvcAf8uu_Cb6agQSJCTJgaAkJZEALw_wcB",AuthorName="Aqil" }
+                    new Bio { Id = 5, ImageUrl= "logo.png",
+                        Linkedn= "https://www.linkexdin.com/" ,Facebook= "Cj0KCQjwtvqVBhCVARIsAFUxcRv7PtwND0mb_zQZOHEyCwzR8nce3lB8LQyvcAf8uu_Cb6agQSJCTJgaAkJZEALw_wcB",AuthorName="Aqil" }
                     
                     
                                  );
-                         
-                    
+            base.OnModelCreating(builder);
+            builder.Entity<SliderContent>().HasData(
+                    new SliderContent { Id=1,Title= "<h1>Send <span>flowers</span> lorem like</h1>",Desc= "Where flowers are our inspiration to create lasting memories. Whatever the occasion, our flowers will   make it special cursus a sit amet mauris.",ImgUrl= "h2-sign-img.png" }
+                  
+
+                                    );
+
+
+
         }
 
     }

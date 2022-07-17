@@ -116,6 +116,7 @@ namespace FrontToBack.Migrations
                             Id = 5,
                             AuthorName = "Aqil",
                             Facebook = "Cj0KCQjwtvqVBhCVARIsAFUxcRv7PtwND0mb_zQZOHEyCwzR8nce3lB8LQyvcAf8uu_Cb6agQSJCTJgaAkJZEALw_wcB",
+                            ImageUrl = "logo.png",
                             Linkedn = "https://www.linkexdin.com/"
                         });
                 });
@@ -179,6 +180,9 @@ namespace FrontToBack.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -322,6 +326,15 @@ namespace FrontToBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SliderContents");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Desc = "Where flowers are our inspiration to create lasting memories. Whatever the occasion, our flowers will   make it special cursus a sit amet mauris.",
+                            ImgUrl = "h2-sign-img.png",
+                            Title = "<h1>Send <span>flowers</span> lorem like</h1>"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
