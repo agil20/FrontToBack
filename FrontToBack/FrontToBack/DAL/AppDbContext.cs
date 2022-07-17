@@ -19,7 +19,8 @@ namespace FrontToBack.DAL
         public DbSet<Product> Products { get; set; }
         public DbSet<Bio> Bios { get; set; }
         public DbSet<Experts> Experts { get; set; }
-
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<CaruselBlogs> CaruselBlogs { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

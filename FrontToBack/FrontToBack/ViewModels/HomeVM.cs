@@ -10,5 +10,7 @@ namespace FrontToBack.ViewModels
         public List<Category>Categories { get; set; }
         public List<Product> Products { get; set; }
         public List<Experts> Experts { get; set; }
+        public List<Blog> Blogs { get; set; }
+        public List<CaruselBlogs> CaruselBlogs { get; set; }
     }
 }
