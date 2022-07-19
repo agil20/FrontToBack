@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FrontToBack.Models
@@ -16,7 +17,9 @@ namespace FrontToBack.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public int Count { get; set; }
+        public List<SalesProduct> SalesProducts { get; set; }
 
-     
+
+
     }
 }

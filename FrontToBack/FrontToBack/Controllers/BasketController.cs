@@ -153,5 +153,13 @@ namespace FrontToBack.Controllers
             };
             return Json(productPlusObj);
         }
+        [HttpPost]
+        [ActionName("Basket")]
+        public async Task<IActionResult> Sale()
+        {
+
+            return View();
+        
+        }
     }
 }

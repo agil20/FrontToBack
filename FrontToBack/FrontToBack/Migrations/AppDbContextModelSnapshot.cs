@@ -31,6 +31,9 @@ namespace FrontToBack.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("ConfirMailTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
@@ -69,6 +72,9 @@ namespace FrontToBack.Migrations
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
+
+                    b.Property<DateTime>("UserCreateTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(256)")
@@ -241,6 +247,36 @@ namespace FrontToBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Experts");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 2,
+                            ImageUrl = "h3-team-img-1.png",
+                            Name = "Crystal Brooks",
+                            Positation = "Florist"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ImageUrl = "h3-team-img-2.png",
+                            Name = "Shirley Hirres",
+                            Positation = "Manager"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ImageUrl = "h3-team-img-3.png",
+                            Name = "Beverly",
+                            Positation = "Florist"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ImageUrl = "h3-team-img-3.png",
+                            Name = "Lorem",
+                            Positation = "Manager"
+                        });
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Instagram", b =>
@@ -341,6 +377,54 @@ namespace FrontToBack.Migrations
                             Name = "Product6",
                             Price = 90
                         });
+                });
+
+            modelBuilder.Entity("FrontToBack.Models.Sale", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("SaleDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Total")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Sales");
+                });
+
+            modelBuilder.Entity("FrontToBack.Models.SalesProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SaleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("SaleId");
+
+                    b.ToTable("SaleProducts");
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Slider", b =>
@@ -536,6 +620,28 @@ namespace FrontToBack.Migrations
                     b.HasOne("FrontToBack.Models.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("FrontToBack.Models.Sale", b =>
+                {
+                    b.HasOne("FrontToBack.Models.AppUser", "AppUser")
+                        .WithMany("Sales")
+                        .HasForeignKey("AppUserId");
+                });
+
+            modelBuilder.Entity("FrontToBack.Models.SalesProduct", b =>
+                {
+                    b.HasOne("FrontToBack.Models.Product", "Product")
+                        .WithMany("SalesProducts")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FrontToBack.Models.Sale", "Sale")
+                        .WithMany("SalesProducts")
+                        .HasForeignKey("SaleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

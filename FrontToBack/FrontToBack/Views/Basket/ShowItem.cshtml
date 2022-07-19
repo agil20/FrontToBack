@@ -4,6 +4,7 @@
     ViewData["Title"] = "ShowItem";
     Layout = "~/Views/Shared/_Layout.cshtml";
     int count = 0;
+   int total = 0;
 
 }
 <div class="container">
@@ -26,8 +27,9 @@
   </thead>
   <tbody>
    @foreach (var item in Model)
-     {
-        count++;
+   {
+       total += (item.Price * item.ProductCount);
+       count++;
       <tr>
       <th scope="row">@count</th>
       <td> <img  width="50"  src="~/img/@item.ImageUrl" /></td>
@@ -57,5 +59,12 @@
 
     </div>
 
-
+    <div class="row">
+        <div>
+        @Model.Sum(p => p.Price * p.ProductCount);
+            </div>
+     <form method="post">
+         <button type= "submit" class="btn btn-success" > Sale</button>
+     </form>
+    </div>
 </div>
