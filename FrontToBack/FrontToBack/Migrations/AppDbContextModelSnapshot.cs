@@ -149,6 +149,32 @@ namespace FrontToBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Blogs");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Desc = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per",
+                            ImageUrl = "blog-feature-img-1.jpg",
+                            Name = "Flower Power",
+                            Time = "29.12.2019 "
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Desc = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per",
+                            ImageUrl = "blog-feature-img-3.jpg",
+                            Name = "Local Florist",
+                            Time = "29.12.2019 "
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Desc = "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per",
+                            ImageUrl = "blog-feature-img-4.jpg",
+                            Name = "Local Florist",
+                            Time = "29.12.2019 "
+                        });
                 });
 
             modelBuilder.Entity("FrontToBack.Models.CaruselBlogs", b =>
@@ -173,6 +199,24 @@ namespace FrontToBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CaruselBlogs");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Desc = "Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus  lingua.",
+                            ImageUrl = "testimonial-img-1.png",
+                            Name = "Anna Barnes",
+                            Positation = "Florist"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Desc = "lorem",
+                            ImageUrl = "testimonial-img-2.png",
+                            Name = "Jasmine White",
+                            Positation = "Florist"
+                        });
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Category", b =>
@@ -292,6 +336,48 @@ namespace FrontToBack.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Instagrams");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ImageUrl = "instagram1.jpg"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ImageUrl = "instagram2.jpg"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ImageUrl = "instagram3.jpg"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ImageUrl = "instagram4.jpg"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ImageUrl = "instagram5.jpg"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ImageUrl = "instagram6.jpg"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ImageUrl = "instagram7.jpg"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ImageUrl = "instagram8.jpg"
+                        });
                 });
 
             modelBuilder.Entity("FrontToBack.Models.Product", b =>

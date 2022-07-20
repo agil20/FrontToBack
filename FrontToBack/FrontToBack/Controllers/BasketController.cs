@@ -162,16 +162,23 @@ namespace FrontToBack.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                AppUser user = await _userManager.FindByIdAsync(User.Identity.Name);
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
                 Sale sale = new Sale();
                 sale.SaleDate = DateTime.Now;
                 sale.AppUserId = user.Id;
                 List<BasketVM> basketProducts = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
                 List<SalesProduct> salesProducts = new List<SalesProduct>();
                 int Total = 0;
+
                 foreach (var basketProduct in basketProducts)
                 {
-                    Product product = await  _context.Products.FindAsync(basketProduct.Id);
+                    Product product = await _context.Products.FindAsync(basketProduct.Id);
+                    if (basketProduct.ProductCount<product.Count)
+                    {
+                        TempData["Fail"] = "O qeder product yoxdur";
+                        return RedirectToAction("ShowItem");
+                    }
+               
                     SalesProduct sales = new SalesProduct();
                     sales.ProductId = product.Id;
                     sales.Count = basketProduct.ProductCount;
@@ -185,6 +192,7 @@ namespace FrontToBack.Controllers
                 sale.Total = Total;
                 await _context.AddAsync(sale);
                 await _context.SaveChangesAsync();
+
                 TempData["succes"] = "Sale succesdir";
                 return RedirectToAction("ShowItem");
             

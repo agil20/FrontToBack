@@ -10,9 +10,16 @@
 <div class="container">
 
     @if(TempData["succes"] !=null){
-    <div class="alert alert-succes">
+    <div class="alert alert-succes sale">
 
         @TempData["succes"]
+    </div>
+        }
+        
+    @if(TempData["fail"] !=null){
+    <div class="alert alert-succes sale">
+
+        @TempData["fail"]
     </div>
         }
    
@@ -27,7 +34,7 @@
                     <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
-                    <th scope="col">CategoryId</th>
+                   
                     <th scope="col">Quantity</th>
                     <th scope="col">Total</th>
 
@@ -43,7 +50,7 @@
                     <td> <img width="50" src="~/img/@item.ImageUrl" /></td>
                     <td>@item.Name</td>
                     <td>@item.Price</td>
-                    <td>@item.CategoryId</td>
+                    
                     <td class="productQuery">@item.ProductCount</td>
                     <td>@(item.Price*item.ProductCount)</td>
                     <td> <span data-value="@item.Id" class="minusTd" style="cursor:pointer;font-size:25px">-</span> <span class="@item.ProductCount">@item.ProductCount</span> <span data-value="@item.Id" class="plusTd" style="cursor:pointer; font-size:25px">+</span> </td>
@@ -83,7 +90,10 @@
 
     setTimeOut(function () {
 
-        document.getElementById("sale").remove();
+        document.querySelectorAll(".sale").forEach(item=>{
+            item..remove();
+        
+        })
 
 
     },5000)

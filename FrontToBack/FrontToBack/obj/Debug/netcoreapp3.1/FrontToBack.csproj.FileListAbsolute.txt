@@ -2665,3 +2665,4 @@ C:\Users\agilakh\Source\Repos\FrontToBack6\FrontToBack\FrontToBack\obj\Debug\net
 C:\Users\agilakh\Source\Repos\FrontToBack6\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\FrontToBack.dll
 C:\Users\agilakh\Source\Repos\FrontToBack6\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\FrontToBack.pdb
 C:\Users\agilakh\Source\Repos\FrontToBack6\FrontToBack\FrontToBack\obj\Debug\netcoreapp3.1\FrontToBack.genruntimeconfig.cache
+C:\Users\asus\Desktop\Asp.net mvc\FrontToBack\FrontToBack\FrontToBack\bin\Debug\netcoreapp3.1\FrontToBack.StaticWebAssets.xml
