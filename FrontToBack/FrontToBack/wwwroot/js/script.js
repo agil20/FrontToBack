@@ -81,7 +81,9 @@ $(document).ready(function () {
                 autoplay: true
             }
         );
-      });
+    });
+   
+ 
 
     // PRODUCT
 

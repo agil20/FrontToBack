@@ -173,25 +173,30 @@ namespace FrontToBack.Controllers
                 foreach (var basketProduct in basketProducts)
                 {
                     Product product = await _context.Products.FindAsync(basketProduct.Id);
-                    if (basketProduct.ProductCount<product.Count)
+
+                    if (basketProduct.ProductCount < product.Count)
                     {
-                        TempData["Fail"] = "O qeder product yoxdur";
+                        TempData["fail"] = "o qeder product yoxdur";
                         return RedirectToAction("ShowItem");
                     }
-               
+
                     SalesProduct sales = new SalesProduct();
                     sales.ProductId = product.Id;
                     sales.Count = basketProduct.ProductCount;
                     sales.SaleId = sale.Id;
                     sales.Price = product.Price;
-                   salesProducts.Add(sales);
+                   
                     Total += basketProduct.ProductCount * product.Price;
+              product.Count-= basketProduct.ProductCount;
+                  
 
                 }
                 sale.SalesProducts = salesProducts;
                 sale.Total = Total;
+             
                 await _context.AddAsync(sale);
                 await _context.SaveChangesAsync();
+
 
                 TempData["succes"] = "Sale succesdir";
                 return RedirectToAction("ShowItem");
