@@ -192,16 +192,23 @@ $(document).ready(function () {
     $(".plusTd").each(function (index) {
      $(this).on("click", function () {
          let Id = $(this).data().value
-        
+       
          let mythis = $(this)
+        
    
          $.ajax({
              url: "/basket/Plus?id=" + Id,
              method: "get",
              success: function (res) {
+               
                  mythis.parent().prev().text(`${res.productSum}`) 
                  mythis.prev().text(`${res.productCount}`) 
                  mythis.parent().prev().prev().text(`${res.productCount}`) 
+                 if (res.productCount >=res.dbProductCount)
+                 {
+                     alert("Product sayi " + res.productCount+"qederdir");
+                 }
+                
              }
          })
        
@@ -221,12 +228,16 @@ $(document).ready(function () {
                 url: "/basket/Minus?id=" + Id,
                 method: "get",
                 success: function (res) {
+                    
                     mythis.next().text(`${res.productCount}`)
                     mythis.parent().prev().text(`${res.productSum}`) 
                     mythis.parent().prev().prev().text(`${res.productCount}`)  
                     if (res.productCount == 0) {
                         mythis.parent().parent().remove();
                     }
+                 
+               
+                    
                 }
             })
 

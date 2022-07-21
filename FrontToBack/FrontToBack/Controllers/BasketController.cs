@@ -30,12 +30,14 @@ namespace FrontToBack.Controllers
         }
         public async Task<IActionResult> AddItem(int? id)
         {
-            //HttpContext.Session.SetString("Person", "Aqil");
-            //Response.Cookies.Append("group", "p322", new CookieOptions {MaxAge=TimeSpan.FromDays(14) });
+          
             if (id == null) return NotFound();
 
             Product dbProduct = await _context.Products.FindAsync(id);
+           // if (!(dbProduct.Count > 0)) return NotFound();
+            
 
+            
             if (dbProduct == null) return NotFound();
             List<BasketVM> products;
             if (Request.Cookies["basket"] == null)
@@ -114,34 +116,44 @@ namespace FrontToBack.Controllers
         }
         public IActionResult Plus(int? id)
         {
+            Product dbproduct = _context.Products.FirstOrDefault(x => x.Id == id);
+
 
             List<BasketVM> products;
+
             string basket = Request.Cookies["basket"];
             products = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
             BasketVM product = products.Find(p => p.Id == id);
-         
 
-            product.ProductCount = product.ProductCount + 1;
+            if (dbproduct.Count > product.ProductCount)
+            {
+                product.ProductCount = product.ProductCount + 1;
+            }
+            product.ProductCount = product.ProductCount ;
             product.Sum = product.Price * product.ProductCount;
 
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(products), new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
             var productPlusObj = new
             {
                 productCount = product.ProductCount,
-                productSum=product.Sum
+                productSum=product.Sum,
+               dbProductCount=dbproduct.Count
+
+
             };
             return Json(productPlusObj);
         }
         public IActionResult Minus(int? id)
         {
-            
+            Product dbproduct = _context.Products.FirstOrDefault(x => x.Id == id);
+
 
             List<BasketVM> products;
             string basket = Request.Cookies["basket"];
             products = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
             BasketVM product = products.Find(p => p.Id == id);
 
-         
+           
             product.ProductCount = product.ProductCount -1;
             product.Sum = product.Price * product.ProductCount;
             if (product.ProductCount==0)
@@ -149,10 +161,12 @@ namespace FrontToBack.Controllers
                 products.Remove(product);
             }
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(products), new CookieOptions { MaxAge = TimeSpan.FromDays(14) });
+           
             var productPlusObj = new
             {
                 productCount = product.ProductCount,
-                productSum = product.Sum
+                productSum = product.Sum,
+                dbProductCount = dbproduct.Count
             };
             return Json(productPlusObj);
         }
