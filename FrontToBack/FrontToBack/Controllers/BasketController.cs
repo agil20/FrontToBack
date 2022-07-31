@@ -41,6 +41,10 @@ namespace FrontToBack.Controllers
             if (dbProduct == null) return NotFound();
             List<BasketVM> products;
             if (Request.Cookies["basket"] == null)
+
+
+
+
             {
                 products = new List<BasketVM>();
             }
@@ -125,6 +129,7 @@ namespace FrontToBack.Controllers
             products = JsonConvert.DeserializeObject<List<BasketVM>>(basket);
             BasketVM product = products.Find(p => p.Id == id);
 
+
             if (dbproduct.Count > product.ProductCount)
             {
                 product.ProductCount = product.ProductCount + 1;
@@ -183,6 +188,7 @@ namespace FrontToBack.Controllers
                 List<BasketVM> basketProducts = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
                 List<SalesProduct> salesProducts = new List<SalesProduct>();
                 int Total = 0;
+             
 
                 foreach (var basketProduct in basketProducts)
                 {
@@ -211,8 +217,11 @@ namespace FrontToBack.Controllers
                 await _context.AddAsync(sale);
                 await _context.SaveChangesAsync();
 
+               
+              
 
                 TempData["succes"] = "Sale succesdir";
+
                 return RedirectToAction("ShowItem");
             
             }

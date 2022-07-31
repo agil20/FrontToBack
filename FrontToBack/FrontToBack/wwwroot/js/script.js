@@ -44,6 +44,7 @@ $(document).ready(function () {
             url: "/product/loadmore?skip="+skip,
             method: "get",
             success: function (res) {
+                console.log(res)
                 productList.append(res);
                 skip += 2
                 console.log(productCount)
@@ -187,6 +188,18 @@ $(document).ready(function () {
             }
         );
     });
+    //sale
+    $("#submitId").each(function (index) {
+        $(this).on("click", function () {
+          
+            $(this).prev().prev().parent().remove();
+         
+
+           
+
+
+        });
+    });
     //plus
    
     $(".plusTd").each(function (index) {
@@ -204,10 +217,7 @@ $(document).ready(function () {
                  mythis.parent().prev().text(`${res.productSum}`) 
                  mythis.prev().text(`${res.productCount}`) 
                  mythis.parent().prev().prev().text(`${res.productCount}`) 
-                 if (res.productCount >=res.dbProductCount)
-                 {
-                     alert("Product sayi " + res.productCount+"qederdir");
-                 }
+        
                 
              }
          })

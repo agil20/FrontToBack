@@ -35,8 +35,9 @@ namespace FrontToBack.Areas.AdminPanel.Controllers
             
             
             return View(paginationVM);
-      
-        
+
+
+
         
         }
         private int PageCount(int take)
